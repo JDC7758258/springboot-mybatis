@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}" />
+</head>
+<body>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">文件下载示例</h3>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">文件列表</h3>
+        </div>
+
+        <div class="panel-body">
+          <div class="table table-responsive">
+            <table class="table table-bordered table-hover">
+              <tbody class="text-center">
+              <tr th:each="file,fileStat : ${fileList}">
+                <td>
+                    <span th:text="${fileStat.count}"></span>
+                  </td>
+                <td>
+                    <a th:href="@{download(filename=${file.name})}">
+                      <span th:text="${file.name}"></span>
+                    </a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
